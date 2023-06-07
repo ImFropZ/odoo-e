@@ -16,21 +16,21 @@
             parent="menu_op_school_exam_result"
             sequence="10"
             action="act_open_op_exam_session_view"
-            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user,openeducat_core.group_school_teacher" />
+            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user,openeducat_exam.group_exam_teacher" />
 
         <menuitem id="menu_op_exam_main"
             name="Exams"
             parent="menu_op_school_exam_result"
             sequence="20"
             action="act_open_op_exam_view"
-            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user" />
+            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user,openeducat_exam.group_exam_teacher" />
 
         <menuitem id="menu_op_exam_attendees_sub"
             name="Exam Attendees"
             parent="menu_op_school_exam_result"
             sequence="30"
             action="act_open_op_exam_attendees_view"
-            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user" />
+            groups="openeducat_exam.group_op_exam_admin,openeducat_exam.group_op_exam_user,openeducat_exam.group_exam_teacher" />
 
         <menuitem id="menu_op_result_template"
             name="Result Templates"

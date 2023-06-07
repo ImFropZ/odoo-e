@@ -27,15 +27,7 @@
     <field name="name">Teacher Assignment Submission Line rule</field>
     <field name="model_id" ref="model_op_assignment_sub_line" />
     <field name="groups" eval="[(4, ref('openeducat_assignment.group_assignment_teacher'))]" />
-    <field name="domain_force">[('faculty_user_id.user_id', '=', user.id)]</field>
+    <field name="domain_force">[('faculty_user_id', '=', user.id)]</field>
   </record>
-
-  <record id="teacher_subject_rule" model="ir.rule">
-    <field name="name">Teacher Subject rule</field>
-    <field name="model_id" ref="model_op_subject" />
-    <field name="groups" eval="[(4, ref('openeducat_assignment.group_assignment_teacher'))]" />
-    <field name="domain_force">[('id', 'in', user.faculty_subject_ids)]</field>
-  </record>
-
 
 </odoo>

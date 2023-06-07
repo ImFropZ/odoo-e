@@ -14,4 +14,14 @@
     <field name="category_id" ref="group_school_position" />
   </record>
   <!-- End -->
+
+  <!-- Teacher Rule -->
+  <!-- TODO: Subject and Faculty -->
+  <!-- Filter: Subject for Teacher -->
+  <!-- <record id="teacher_subject_rule" model="ir.rule">
+    <field name="name">Teacher</field>
+    <field name="model_id" ref="model_op_subject" />
+    <field name="groups" eval="[(4, ref('openeducat_core.group_school_teacher'))]" />
+    <field name="domain_force">[('id', '=', user.faculty_subject_ids)]</field>
+  </record> -->
 </odoo>
