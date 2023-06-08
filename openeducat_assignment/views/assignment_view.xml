@@ -72,7 +72,8 @@
                                     context="{'course_id': course_id,'get_parent_batch':1}"
                                     attrs="{'readonly':[('state','!=','draft')]}" />
                                 <field name="faculty_id"
-                                    attrs="{'readonly':[('state','!=','draft')]}" />
+                                    attrs="{'readonly':[('state','!=','draft')]}"
+                                    domain="[('emp_id.user_id', '=', uid)]" />
                                 <field name="reviewer" attrs="{'readonly':[('state','!=','draft')]}" />
                             </group>
                         </group>
