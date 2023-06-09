@@ -26,11 +26,11 @@
                         <button name="act_submit" states="draft" type="object"
                                 string="Submit" class="oe_highlight"/>
                         <button name="act_accept" states="submit" type="object"
-                                string="Accept" groups="openeducat_assignment.group_op_assignment_user" class="oe_highlight"/>
+                                string="Accept" groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher" class="oe_highlight"/>
                         <button name="act_change_req" states="submit" type="object"
-                                string="Change Require" groups="openeducat_assignment.group_op_assignment_user"/>
+                                string="Change Require" groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher"/>
                         <button name="act_reject" states="submit" type="object"
-                                string="Reject" groups="openeducat_assignment.group_op_assignment_user"/>
+                                string="Reject" groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher"/>
                         <button name="act_draft" states="change" type="object"
                                 string="Change And Resubmit" groups="openeducat_assignment.group_op_assignment_manager"
                                 class="oe_highlight"/>

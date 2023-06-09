@@ -33,17 +33,17 @@
                         <button name="act_publish" states="draft"
                             type="object" string="Publish"
                             class="oe_highlight"
-                            groups="openeducat_assignment.group_op_assignment_user" />
+                            groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher" />
                         <button name="act_set_to_draft" states="publish"
                             type="object" string="Set to Draft"
                             class="oe_highlight"
                             groups="openeducat_assignment.group_op_assignment_user" />
                         <button name="act_finish" class="oe_highlight"
                             states="publish" type="object" string="Finish"
-                            groups="openeducat_assignment.group_op_assignment_user" />
+                            groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher" />
                         <button name="act_cancel" states="publish"
                             type="object" string="Cancel"
-                            groups="openeducat_assignment.group_op_assignment_user" />
+                            groups="openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher" />
                         <field name="state" widget="statusbar"
                             statusbar_visible="draft,publish,finish" />
                     </header>
@@ -72,8 +72,7 @@
                                     context="{'course_id': course_id,'get_parent_batch':1}"
                                     attrs="{'readonly':[('state','!=','draft')]}" />
                                 <field name="faculty_id"
-                                    attrs="{'readonly':[('state','!=','draft')]}"
-                                    domain="[('emp_id.user_id', '=', uid)]" />
+                                    attrs="{'readonly':[('state','!=','draft')]}" />
                                 <field name="reviewer" attrs="{'readonly':[('state','!=','draft')]}" />
                             </group>
                         </group>

@@ -76,20 +76,5 @@
                 eval="[(4, ref('openeducat_assignment.group_op_assignment_manager'))]" />
             <field name="domain_force">[(1,'=',1)]</field>
         </record>
-
-        <!-- Teacher Rule -->
-        <record id="teacher_assignment_rule" model="ir.rule">
-            <field name="name">Teacher Assignment Rule</field>
-            <field name="model_id" ref="model_op_assignment" />
-            <field name="groups" eval="[(4, ref('openeducat_core.group_school_teacher'))]" />
-            <field name="domain_force">[('faculty_id.user_id', '=', user.id)]</field>
-        </record>
-
-        <record id="teacher_assignment_sub_line_rule" model="ir.rule">
-            <field name="name">Teacher Assignment Submission Line Rule</field>
-            <field name="model_id" ref="model_op_assignment_sub_line" />
-            <field name="groups" eval="[(4, ref('openeducat_core.group_school_teacher'))]" />
-            <field name="domain_force">[('assignment_id.faculty_id.user_id', '=', user.id)]</field>
-        </record>
     </data>
 </odoo>

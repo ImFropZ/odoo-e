@@ -35,7 +35,9 @@ class OpAssignmentSubLine(models.Model):
             if self.env.user.has_group(
                     'openeducat_assignment.group_op_assignment_manager') or \
                     self.env.user.has_group(
-                        'openeducat_assignment.group_op_assignment_user'):
+                        'openeducat_assignment.group_op_assignment_user') or \
+                        self.env.user.has_group(
+                            'openeducat_assignment.group_assignment_teacher'):
                 user.user_boolean = True
             else:
                 user.user_boolean = False

@@ -20,7 +20,7 @@
     <field name="name">Teacher Attendance Sheet rule</field>
     <field name="model_id" ref="model_op_attendance_sheet" />
     <field name="groups" eval="[(4, ref('openeducat_attendance.group_attendance_teacher'))]" />
-    <field name="domain_force">[('faculty_id.user_id', '=', user.id)]</field>
+    <field name="domain_force">[('faculty_id.emp_id.user_id', '=', user.id)]</field>
   </record>
 
 </odoo>
