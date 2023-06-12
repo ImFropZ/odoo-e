@@ -8,7 +8,7 @@
         <menuitem id="menu_op_parent_sub_parent" name="Parents"
                   parent="menu_op_parent_root" sequence="10"
                   action="act_open_op_parent_view"
-                  groups="openeducat_core.group_op_back_office_admin"/>
+                  groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_school_teacher"/>
 
         <menuitem id="menu_op_parent_relationship_sub_parent" name="Relationships"
                   parent="menu_op_parent_root" sequence="20"
