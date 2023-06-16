@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dynamic_category_row_snippet" name="Dynamic Category Row">
+        <section class="container dynamic_snippet_category_row" data-category-names="">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="dynamic-category-label">
+                        Dynamic Category Row Test
+                    </h1>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <record id="e_commerce_snippets.s_dynamic_category_row_000_scss" model="ir.asset">
+        <field name="name">Dynamic Category Row 000 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_category_row/000.scss</field>
+    </record>
+
+    <record id="e_commerce_snippets.s_dynamic_category_row_000_js" model="ir.asset">
+        <field name="name">Dynamic Category Row 000 JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">e_commerce_snippets/static/src/snippets/s_dynamic_category_row/000.js</field>
+    </record>
+</odoo>

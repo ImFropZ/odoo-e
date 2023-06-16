@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="e_commerce_snippets" name="Custom Snippets" inherit_id="website.snippets"
+        priority="8">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="e_commerce_snippets.dynamic_category_snippet" />
+            <t t-snippet="e_commerce_snippets.dynamic_category_row_snippet" />
+        </xpath>
+    </template>
+</odoo>
