@@ -13,14 +13,13 @@ odoo.define(
       start: function () {
         var self = this;
         
-        self.$("#dynamic-slide-container").html("HELLO WORLD")
         // Search domain setup
         var websiteIdDomain = wUtils.websiteDomain(this);
         var domain = [...websiteIdDomain];
 
         rpc
           .query({
-            route: "/get_slides",
+            route: "/website_slides/get_slides",
             params: {
               domain,
             },
