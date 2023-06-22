@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <record id="view_op_assignment_kanban" model="ir.ui.view">
+            <field name="name">op.assignment.view.kanban</field>
+            <field name="model">op.assignment</field>
+            <field name="arch" type="xml">
+                <kanban string="Assignment">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_card_content">
+                                    <field name="assignment_type"
+                                        modifiers="{&quot;required&quot;: true}" widget="badge" />
+                                    <h2 style="display: inline; margin-left: 1rem;">
+                                        <field name="name" on_change="1"
+                                            modifiers="{&quot;required&quot;: true}" />
+                                    </h2>
+                                    <h2 style="margin: 0.5rem 0;">Subject : <field name="subject_id"
+                                            modifiers="{&quot;required&quot;: true}" /></h2>
+                                    <h4 style="display: inline; margin: 0.5rem 0;">Course : <field
+                                            name="course_id"
+                                            modifiers="{&quot;required&quot;: true}" /></h4>
+                                    <p style="display: inline; margin-left: 1rem;">
+                                        <field name="batch_id"
+                                            modifiers="{&quot;required&quot;: true}" widget="badge" />
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <field name="faculty_id"
+                                                modifiers="{&quot;required&quot;: true}" />
+                                        </li>
+                                        <t t-if="reviewer">
+                                            <li>
+                                                <field name="reviewer"
+                                                    modifiers="{&quot;required&quot;: true}" />
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <record id="view_op_assignment_tree" model="ir.ui.view">
             <field name="name">op.assignment.tree</field>
             <field name="model">op.assignment</field>
@@ -213,7 +257,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">op.assignment</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph</field>
             <field name="search_view_id" ref="view_op_assignment_search" />
         </record>
 
