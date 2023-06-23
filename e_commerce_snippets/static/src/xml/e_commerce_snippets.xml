@@ -4,7 +4,7 @@
     <t t-name="e_commerce_snippets.CatagoryContainer">
         <t t-foreach="categories" t-as="category">
             <div class="s_col_no_bgcolor pt16 pb16 col-lg-2">
-                <a t-attf-href="category['website_url']">
+                <a t-att-href="category['website_url']">
                     <div class="card text-bg-white h-100" style="text-align: center;">
                         <t t-if="category.image">
                             <img t-attf-src="data:image/jpeg;base64,{{category.image}}" t-att-alt="category['name']" class="card-img-top img img-fluid o_we_custom_image" loading="lazy"></img>
