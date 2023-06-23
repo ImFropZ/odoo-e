@@ -110,7 +110,7 @@
                                 <field name="evaluation_type" />
                             </group>
                         </group>
-                        <group string="Exam(s)">
+                        <group string="Exam(s)" style="overflow: auto;"> <!-- Overflow for Mobile -->
                             <field name="exam_ids" colspan="2" readonly="1" nolabel="1">
                                 <tree string="Exam">
                                     <field name="name" />
