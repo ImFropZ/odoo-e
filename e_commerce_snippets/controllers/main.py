@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 
 
 class ECommerceSnippets(http.Controller):
-    @http.route(['/e_commerce/get_product_category'], type="json", auth="public")
+    @http.route(['/e_commerce/get_product_categories'], type="json", auth="public")
     def product_category(self, domain=None, **kwargs):
         try:
             if domain:
@@ -32,7 +32,7 @@ class ECommerceSnippets(http.Controller):
             error_message = {'error': str(e)}
             return request.make_response(json.dumps(error_message), headers=[('Content-Type', 'application/json')])
 
-    @http.route(['/e_commerce/get_product_category_row'], type="json", auth="public")
+    @http.route(['/e_commerce/get_product_categories_row'], type="json", auth="public")
     def product_category_row(self, domain=None, **kwargs):
         try:
             if domain:

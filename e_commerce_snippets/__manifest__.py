@@ -18,8 +18,8 @@ Featuring
     'depends': ["website", "website_sale", "sale", "product"],
     'data': [
         # Snippet
-        'views/snippets/s_dynamic_category.xml',
-        'views/snippets/s_dynamic_category_row.xml',
+        'views/snippets/s_dynamic_categories.xml',
+        'views/snippets/s_dynamic_categories_row.xml',
         'views/snippets/snippets.xml',
     ],
     'demo': [
