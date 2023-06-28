@@ -9,7 +9,7 @@ const QWeb = core.qweb;
 options.registry.DynamicCategoriesRowOptions = options.Class.extend({
   start() {
     const categoriesRowContainer = this.$target.find(
-      "#dynamic-cateogories-row-container"
+      "#dynamic_cateogories_row_container"
     );
 
     if (categoriesRowContainer) {
@@ -30,12 +30,12 @@ options.registry.DynamicCategoriesRowOptions = options.Class.extend({
         );
       });
 
-      const moveBackBtn = $(".dynamic-category-row-products__moveBack");
-      const moveFrontBtn = $(".dynamic-category-row-products__moveFront");
+      const moveBackBtn = $(".dynamic_category_row_products__moveBack");
+      const moveFrontBtn = $(".dynamic_category_row_products__moveFront");
 
       moveBackBtn.on("click", function () {
         const container = $(this).siblings(
-          ".dynamic-category-row-productsContainer"
+          ".dynamic_category_row_productsContainer"
         );
         const nextSectionOffset = container.scrollLeft() - container.width();
 
@@ -44,7 +44,7 @@ options.registry.DynamicCategoriesRowOptions = options.Class.extend({
 
       moveFrontBtn.on("click", function () {
         const container = $(this).siblings(
-          ".dynamic-category-row-productsContainer"
+          ".dynamic_category_row_productsContainer"
         );
         const nextSectionOffset = container.scrollLeft() + container.width();
 

@@ -3,7 +3,7 @@
     <template id="dynamic_categories_row_snippet" name="Dynamic Categories Row">
         <section class="container dynamic_snippet_categories_row" data-category-names="">
             <div class="container">
-                <div id="dynamic-cateogories-row-container">
+                <div id="dynamic_cateogories_row_container">
                     <div class="text-center py-5">
                         <h2 class="h1">Products Each Row From E-Commerce</h2>
                         <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and

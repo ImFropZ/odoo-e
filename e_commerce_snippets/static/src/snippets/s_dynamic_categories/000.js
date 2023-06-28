@@ -6,8 +6,8 @@ import wUtils from "website.utils";
 publicWidget.registry.DynamicCategories = publicWidget.Widget.extend({
   selector: ".dynamic_snippet_categories",
   start() {
-    let categoriesContainer = this.el.querySelector(
-      "#dynamic-cateogories-container"
+    const categoriesContainer = this.el.querySelector(
+      "#dynamic_cateogories_container"
     );
 
     if (categoriesContainer) {

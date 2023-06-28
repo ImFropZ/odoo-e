@@ -9,8 +9,8 @@ const QWeb = core.qweb;
 publicWidget.registry.DynamicCategoriesRow = publicWidget.Widget.extend({
   selector: ".dynamic_snippet_categories_row",
   start() {
-    let categoriesRowContainer = this.el.querySelector(
-      "#dynamic-cateogories-row-container"
+    const categoriesRowContainer = this.el.querySelector(
+      "#dynamic_cateogories_row_container"
     );
 
     if (categoriesRowContainer) {

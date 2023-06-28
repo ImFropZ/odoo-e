@@ -17,7 +17,7 @@ Featuring
     'depends': ["website", "website_slides"],
     'data': [
         # Snippet
-        'views/snippets/s_dynamic_slide.xml',
+        'views/snippets/s_dynamic_slides.xml',
         'views/snippets/snippets.xml',
     ],
     'demo': [

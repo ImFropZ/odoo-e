@@ -6,7 +6,7 @@ import wUtils from "website.utils";
 options.registry.DynamicCategoriesOptions = options.Class.extend({
   start() {
     const categoriesContainer = this.$target.find(
-      "#dynamic-cateogories-container"
+      "#dynamic_cateogories_container"
     );
 
     if (categoriesContainer) {
