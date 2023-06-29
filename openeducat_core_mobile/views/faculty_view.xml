@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <data>
-    <!-- Add test field to existing view -->
     <record model="ir.ui.view" id="view_op_faculty_form_inherited">
       <field name="name">op.faculty.form.inherited</field>
       <field name="model">op.faculty</field>
@@ -128,6 +127,7 @@
           </div>
 
           <div
+            id="subjects"
             style="background-color: #eee; padding-top: 0.25rem; padding-bottom: 0.25rem; padding-left: 0.75rem;padding-right: 0.75rem; margin-top: 0.5rem; border-radius: 0.25rem; min-width: 22rem; margin: 0.5rem auto; max-width: 55rem;">
             <h2 style="font-weight: 700;">Subjects</h2>
             <div
