@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Openeducat Core Mobile View',
+    'name': 'Openeducat Core Customized',
     'version': '1.0.0',
     'sequence': 126,
-    'summary': 'Openeducat Core Mobile View',
+    'summary': 'Openeducat Core Customized',
     'author': 'Anakut Digital',
     'category': 'Education/Anakut',
     'description': """
-Openeducat Core Mobile View by ANAKUT
+Openeducat Core Customized by ANAKUT
 =====================================
 
 Changing
@@ -18,6 +18,7 @@ Changing
     'data': [
         'views/faculty_view.xml',
         'views/student_view.xml',
+        'views/student_course_view.xml',
     ],
     'demo': [
 
@@ -25,7 +26,7 @@ Changing
     'installable': True,
     'application': False,
     'assets': {
-        
+
     },
     'license': 'LGPL-3',
 }

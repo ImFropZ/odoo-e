@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_op_student_course_form_inherited">
+      <field name="name">op.student.course.form.inherited</field>
+      <field name="model">op.student.course</field>
+      <field name="priority">20</field>
+      <field name="inherit_id" ref="openeducat_core.view_op_student_course_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//notebook" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet/group" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet" position="inside">
+          <div
+            style="padding-top: 0.25rem; padding-bottom: 0.25rem; padding-left: 0.75rem;padding-right: 0.75rem; margin-top: 0.5rem; border-radius: 0.25rem; min-width: 22rem; margin: 0.5rem auto; max-width: 55rem;">
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Student : </div>
+              <field name="student_id" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Course : </div>
+              <field name="course_id" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Batch : </div>
+              <field name="batch_id" style="flex-grow: 1;" domain="[('course_id', '=', course_id)]" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Roll Number : </div>
+              <field name="roll_number" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Academic Years : </div>
+              <field name="academic_years_id" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Academic Term : </div>
+              <field name="academic_term_id" style="flex-grow: 1;" />
+            </div>
+          </div>
+
+          <div id="subjects"
+            style="background-color: #eee; padding-top: 0.25rem; padding-bottom: 0.25rem; padding-left: 0.75rem;padding-right: 0.75rem; margin-top: 0.5rem; border-radius: 0.25rem; min-width: 22rem; margin: 0.5rem auto; max-width: 55rem;">
+            <h2 style="font-weight: 700;">Subjects</h2>
+            <div
+              style="padding-top: 0.25rem;padding-bottom: 0.25rem; padding-left: 0.5rem;padding-right: 0.5rem; margin-top: 0.5rem;margin-bottom: 0.5rem; width: 100%; border-radius: 0.25rem; border-width: 1px; border-color: #000000; ">
+              <field name="subject_ids" />
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
