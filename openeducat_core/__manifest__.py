@@ -32,7 +32,6 @@
     'depends': ['board', 'hr', 'web', 'website'],
     'data': [
         'security/op_security.xml',
-        'security/security.xml',
         'security/ir.model.access.csv',
         'report/report_menu.xml',
         'report/report_student_bonafide.xml',

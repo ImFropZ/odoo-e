@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="openeducat_exam.menu_op_exam_session"
+      name="Exam Sessions"
+      parent="openeducat_exam.menu_op_school_exam_result"
+      sequence="10"
+      action="openeducat_exam.act_open_op_exam_session_view"
+      groups="openeducat_exam_customized.group_exam_teacher" />
+
+    <menuitem id="openeducat_exam.menu_op_exam_main"
+      name="Exams"
+      parent="openeducat_exam.menu_op_school_exam_result"
+      sequence="20"
+      action="openeducat_exam.act_open_op_exam_view"
+      groups="openeducat_exam_customized.group_exam_teacher" />
+
+    <menuitem id="openeducat_exam.menu_op_exam_attendees_sub"
+      name="Exam Attendees"
+      parent="openeducat_exam.menu_op_school_exam_result"
+      sequence="30"
+      action="openeducat_exam.act_open_op_exam_attendees_view"
+      groups="openeducat_exam_customized.group_exam_teacher" />
+  </data>
+</odoo>

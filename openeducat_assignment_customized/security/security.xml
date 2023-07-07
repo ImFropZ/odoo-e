@@ -4,29 +4,29 @@
   <!-- Teacher Group For Assignment -->
   <record id="group_assignment_teacher" model="res.groups">
     <field name="name">Teacher</field>
-    <field name="category_id" ref="module_category_openeducat_assignment" />
+    <field name="category_id" ref="openeducat_assignment.module_category_openeducat_assignment" />
     <field name="implied_ids"
-      eval="[(4, ref('openeducat_core.group_school_teacher'))]" />
+      eval="[(4, ref('openeducat_core_customized.group_school_teacher'))]" />
   </record>
 
   <!-- Group Teacher -->
-  <record id="openeducat_core.group_school_teacher" model="res.groups">
+  <record id="openeducat_core_customized.group_school_teacher" model="res.groups">
     <field name="implied_ids"
-      eval="[(4, ref('openeducat_assignment.group_assignment_teacher'))]" />
+      eval="[(4, ref('openeducat_assignment_customized.group_assignment_teacher'))]" />
   </record>
 
   <!-- Teacher Rule -->
   <record id="teacher_assignment_rule" model="ir.rule">
     <field name="name">Teacher Assignment rule</field>
-    <field name="model_id" ref="model_op_assignment" />
-    <field name="groups" eval="[(4, ref('openeducat_assignment.group_assignment_teacher'))]" />
+    <field name="model_id" ref="openeducat_assignment.model_op_assignment" />
+    <field name="groups" eval="[(4, ref('openeducat_assignment_customized.group_assignment_teacher'))]" />
     <field name="domain_force">[('faculty_id.emp_id.user_id', '=', user.id)]</field>
   </record>
 
   <record id="teacher_assignment_sub_line_rule" model="ir.rule">
     <field name="name">Teacher Assignment Submission Line rule</field>
-    <field name="model_id" ref="model_op_assignment_sub_line" />
-    <field name="groups" eval="[(4, ref('openeducat_assignment.group_assignment_teacher'))]" />
+    <field name="model_id" ref="openeducat_assignment.model_op_assignment_sub_line" />
+    <field name="groups" eval="[(4, ref('openeducat_assignment_customized.group_assignment_teacher'))]" />
     <field name="domain_force">[('assignment_id.faculty_id.emp_id.user_id', '=', user.id), ('state',
       '!=', 'draft')]</field>
   </record>

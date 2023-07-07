@@ -6,13 +6,13 @@
     <field name="name">Teacher</field>
     <field name="category_id" ref="openeducat_core.module_category_all_other_education" />
     <field name="implied_ids"
-      eval="[(4, ref('openeducat_core.group_school_teacher'))]" />
+      eval="[(4, ref('openeducat_core_customized.group_school_teacher'))]" />
   </record>
 
   <!-- Group Teacher -->
-  <record id="openeducat_core.group_school_teacher" model="res.groups">
+  <record id="openeducat_core_customized.group_school_teacher" model="res.groups">
     <field name="implied_ids"
-      eval="[(4, ref('openeducat_library.group_library_teacher'))]" />
+      eval="[(4, ref('openeducat_library_customized.group_library_teacher'))]" />
   </record>
 
 </odoo>

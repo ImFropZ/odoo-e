@@ -11,7 +11,7 @@
             parent="openeducat_core.menu_op_faculty_root"
             sequence="20"
             action="act_open_op_faculty_view_2"
-            groups="openeducat_core.group_op_faculty,openeducat_core.group_school_teacher" />
+            groups="openeducat_core.group_op_faculty" />
 
         <menuitem id="subject_registration_faculty_menu"
             name="Subject Registration"

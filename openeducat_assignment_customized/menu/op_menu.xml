@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="openeducat_assignment.menu_op_assignment_root" name="Assignments" sequence="40"
+            web_icon="openeducat_assignment,static/description/icon.png"
+            groups="openeducat_assignment_customized.group_assignment_teacher" />
+
+        <menuitem id="openeducat_assignment.menu_op_assignment_main" name="Assignments"
+            parent="openeducat_assignment.menu_op_assignment_root" sequence="10"
+            groups="openeducat_assignment_customized.group_assignment_teacher" />
+
+        <menuitem id="openeducat_assignment.menu_op_assignment_sub" name="Assignments"
+            parent="openeducat_assignment.menu_op_assignment_main" sequence="10"
+            action="openeducat_assignment.act_open_op_assignment_view"
+            groups="openeducat_assignment_customized.group_assignment_teacher" />
+
+        <menuitem id="openeducat_assignment.menu_op_assignment_sub_line_sub" name="Assignment Submissions"
+            parent="openeducat_assignment.menu_op_assignment_main" sequence="20"
+            action="openeducat_assignment.act_open_op_assignment_sub_line_view"
+            groups="openeducat_assignment_customized.group_assignment_teacher" />
+    </data>
+</odoo>

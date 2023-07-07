@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="openeducat_core.menu_op_faculty_details"
+      name="Profile"
+      sequence="20"
+      parent="openeducat_core.menu_op_faculty_root"
+      action="openeducat_core.act_open_op_faculty_view_2"
+      groups="openeducat_core_customized.group_school_teacher" />
+  </data>
+</odoo>
