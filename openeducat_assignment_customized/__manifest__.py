@@ -18,14 +18,15 @@ Add
 
 """,
     'depends': [
-        'base_automation',
-        'openeducat_core',
-        'openeducat_core_customized'
+        'openeducat_assignment'
     ],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        
+
+        'views/assignment_view.xml',
+        'views/assignment_sub_line_view.xml',
+
         'menu/op_menu.xml',
     ],
     'demo': [

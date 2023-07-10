@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_op_assignment_sub_line_form_inherited">
+      <field name="name">op.assignment.sub.line.form.inherited</field>
+      <field name="model">op.assignment.sub.line</field>
+      <field name="priority">15</field>
+      <field name="inherit_id" ref="openeducat_assignment.view_op_assignment_sub_line_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet/group" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet/group" position="after">
+          <div
+            style="padding-top: 0.25rem; padding-bottom: 0.25rem; padding-left: 0.75rem;padding-right: 0.75rem; margin-top: 0.5rem; border-radius: 0.25rem; min-width: 22rem;">
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Student : </div>
+              <field name="student_id" style="flex-grow: 1;"
+                attrs="{'readonly':[('state','!=','draft')]}" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Assignment : </div>
+              <field name="assignment_id" style="flex-grow: 1;"
+                attrs="{'readonly':[('state','!=','draft')]}" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Marks : </div>
+              <field name="marks" style="flex-grow: 1;"
+                attrs="{'readonly':[('state','!=','draft')]}" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Submission Date : </div>
+              <field name="submission_date" style="flex-grow: 1;"
+                attrs="{'readonly':[('state','!=','draft')]}" />
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
