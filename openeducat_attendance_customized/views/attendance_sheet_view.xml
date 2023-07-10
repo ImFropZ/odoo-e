@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_op_attendance_sheet_form_inherited">
+      <field name="name">op.attendance.sheet.form.inherited</field>
+      <field name="model">op.attendance.sheet</field>
+      <field name="priority">15</field>
+      <field name="inherit_id" ref="openeducat_attendance.view_op_attendance_sheet_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet/group" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_op_attendance_sheet_kanban" model="ir.ui.view">
+      <field name="name">op.attendance.sheet.view.kanban</field>
+      <field name="model">op.attendance.sheet</field>
+      <field name="arch" type="xml">
+        <kanban string="Attendance Sheet">
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                <div class="o_kanban_card_content">
+                  <h2 style="text-align: center;">
+                    <field name="name" modifiers="{&quot;readonly&quot;: true}" />
+                  </h2>
+                  <h3 style="text-align: center;">
+                    <field name="register_id"
+                      modifiers="{&quot;readonly&quot;: true}" string="ID" />
+                  </h3>
+                  <ul>
+                    <li>
+                      <field name="session_id"
+                        modifiers="{&quot;readonly&quot;: true}" />
+                    </li>
+                    <li>
+                      <field name="attendance_date"
+                        modifiers="{&quot;readonly&quot;: true}" />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window"
+      id="openeducat_attendance.act_open_op_attendance_sheet_view">
+      <field name="name">Attendance Sheets</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">op.attendance.sheet</field>
+      <field name="view_mode">kanban</field>
+      <field name="search_view_id" ref="openeducat_attendance.view_op_attendance_sheet_search" />
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+    </record>
+
+  </data>
+</odoo>

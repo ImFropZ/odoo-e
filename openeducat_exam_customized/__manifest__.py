@@ -24,6 +24,8 @@ Add
         'security/security.xml',
         'security/ir.model.access.csv',
 
+        'views/exam_session_view.xml',
+
         'menu/op_menu.xml',
     ],
     'demo': [

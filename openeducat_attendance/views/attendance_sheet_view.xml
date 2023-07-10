@@ -56,7 +56,7 @@
                                 <field name="attendance_date" />
                             </group>
                         </group>
-                        <group col="4" string="Students" style="overflow: auto;"> <!-- Add style overflow because of mobile view -->
+                        <group col="4" string="Students">
                             <field name="attendance_line" colspan="4" nolabel="1">
                                 <tree string="Attendance Line" editable="top">
                                     <field name="student_id"
@@ -130,49 +130,12 @@
             </field>
         </record>
 
-        <!-- NEW KANBAN-->
-        <record id="view_op_attendance_sheet_kanban" model="ir.ui.view">
-            <field name="name">op.attendance.sheet.view.kanban</field>
-            <field name="model">op.attendance.sheet</field>
-            <field name="arch" type="xml">
-                <kanban string="Attendance Sheet">
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
-                                <div class="o_kanban_card_content">
-                                    <h2 style="text-align: center;">
-                                        <field name="name" modifiers="{&quot;readonly&quot;: true}" />
-                                    </h2>
-                                    <h3 style="text-align: center;">
-                                        <field name="register_id"
-                                            modifiers="{&quot;readonly&quot;: true}" string="ID" />
-                                    </h3>
-                                    <ul>
-                                        <li>
-                                            <field name="session_id"
-                                                modifiers="{&quot;readonly&quot;: true}" />
-                                        </li>
-                                        <li>
-                                            <field name="attendance_date"
-                                                modifiers="{&quot;readonly&quot;: true}" />
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </t>
-                    </templates>
-                </kanban>
-            </field>
-        </record>
-        <!-- ADD Kanban View in Act Window -->
-        <!-- END -->
-
         <record model="ir.actions.act_window" id="act_open_op_attendance_sheet_view">
             <field name="name">Attendance Sheets</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">op.attendance.sheet</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">kanban,tree,form,pivot,graph</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
             <field name="search_view_id" ref="view_op_attendance_sheet_search" />
             <field name="domain">[]</field>
             <field name="context">{}</field>

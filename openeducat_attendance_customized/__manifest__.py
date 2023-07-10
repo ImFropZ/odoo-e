@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Openeducat Exam Customized',
+    'name': 'Openeducat Attendance Customized',
     'version': '1.0.0',
     'sequence': 126,
-    'summary': 'Openeducat Exam Customized',
+    'summary': 'Openeducat Attendance Customized',
     'author': 'Anakut Digital',
     'category': 'Education/Anakut',
     'description': """
-Openeducat Exam Customized by ANAKUT
+Openeducat Attendance Customized by ANAKUT
 ==========================================
 
 Add
 * Group
     * Teacher
-        * 
+        * Attendance menu
+        * Attendance Submission menu
 
 """,
     'depends': [
-        'openeducat_classroom'
-        'openeducat_core_customized'
+        'openeducat_attendance'
     ],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        
+
+        'views/attendance_sheet_view.xml',
+
         'menu/op_menu.xml',
     ],
     'demo': [

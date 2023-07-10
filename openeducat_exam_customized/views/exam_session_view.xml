@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_op_exam_session_form_inherited">
+      <field name="name">op.exam.session.form.inherited</field>
+      <field name="model">op.exam.session</field>
+      <field name="priority">15</field>
+      <field name="inherit_id" ref="openeducat_exam.view_op_exam_session_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//group" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//group" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+
+        <xpath expr="//sheet" position="replace">
+          <sheet>
+            <field name="active" invisible="1" />
+            <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+              attrs="{'invisible': [('active', '=', True)]}" />
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Name : </div>
+              <field name="name" style="flex-grow: 1;" select="1" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Course : </div>
+              <field name="course_id" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Exam Type : </div>
+              <field name="exam_type" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Venue : </div>
+              <field name="venue" style="flex-grow: 1;" domain="[('is_venue','=',True)]"
+                required="1" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Exam Code : </div>
+              <field name="exam_code" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Start Date : </div>
+              <field name="start_date" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">End Date : </div>
+              <field name="end_date" style="flex-grow: 1;" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Batch : </div>
+              <field name="batch_id" style="flex-grow: 1;"
+                context="{'course_id': course_id,'get_parent_batch':1}" />
+            </div>
+            <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+              <div style="color: #4B5563;">Evaluation Type : </div>
+              <field name="evaluation_type" style="flex-grow: 1;" />
+            </div>
+
+            <group string="Exam(s)" style="overflow: auto;"> <!-- Overflow for Mobile -->
+              <field name="exam_ids" colspan="2" readonly="1" nolabel="1">
+                <kanban string="Exam">
+                  <templates>
+                    <t t-name="kanban-box">
+                      <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                        <div class="o_kanban_card_content">
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Name : </div>
+                            <field name="name" style="flex-grow: 1;" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Subject : </div>
+                            <field name="subject_id" style="flex-grow: 1;" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Exam Code : </div>
+                            <field name="exam_code" style="flex-grow: 1;" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Duration : </div>
+                            <field name="start_time" />
+                            <span>-</span>
+                            <field name="end_time" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">State : </div>
+                            <field name="state" style="flex-grow: 1;" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Total Marks : </div>
+                            <field name="total_marks" style="flex-grow: 1;" />
+                          </div>
+                          <div style="margin: 0.5rem; display: flex; gap: .5rem;">
+                            <div style="color: #4B5563;">Min Marks : </div>
+                            <field name="min_marks" style="flex-grow: 1;" />
+                          </div>
+                        </div>
+                      </div>
+                    </t>
+                  </templates>
+                </kanban>
+              </field>
+            </group>
+          </sheet>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
