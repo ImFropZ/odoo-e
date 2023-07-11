@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Openeducat Exam Customized',
+    'name': 'Openeducat Parent Customized',
     'version': '1.0.0',
     'sequence': 126,
-    'summary': 'Openeducat Exam Customized',
+    'summary': 'Openeducat Parent Customized',
     'author': 'Anakut Digital',
     'category': 'Education/Anakut',
     'description': """
-Openeducat Exam Customized by ANAKUT
+Openeducat Parent Customized by ANAKUT
 ==========================================
 
 Add
@@ -17,16 +17,12 @@ Add
 
 """,
     'depends': [
-        'openeducat_classroom',
-        'openeducat_exam'
+        'openeducat_parent'
     ],
     'data': [
-        'security/security.xml',
         'security/ir.model.access.csv',
 
-        'views/exam_session_view.xml',
-        'views/exam_view.xml',
-        'views/exam_attendees_view.xml',
+        'views/parent_view.xml',
 
         'menu/op_menu.xml',
     ],

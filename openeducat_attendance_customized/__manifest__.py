@@ -25,6 +25,7 @@ Add
         'security/ir.model.access.csv',
 
         'views/attendance_sheet_view.xml',
+        'views/attendance_session_view.xml',
 
         'menu/op_menu.xml',
     ],

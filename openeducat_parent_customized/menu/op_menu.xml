@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="openeducat_parent.menu_op_parent_sub_parent" name="Parents"
+            parent="openeducat_parent.menu_op_parent_root" sequence="10"
+            action="openeducat_parent.act_open_op_parent_view"
+            groups="openeducat_core_customized.group_school_teacher" />
+
+    </data>
+</odoo>

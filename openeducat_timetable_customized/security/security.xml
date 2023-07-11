@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- TimeTable Teacher Group -->
+    <record id="group_timetable_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="openeducat_timetable.module_category_openeducat_timetable" />
+        <field name="implied_ids"
+            eval="[(4, ref('openeducat_core_customized.group_school_teacher'))]" />
+    </record>
+
+    <!-- Group Teacher -->
+    <record id="openeducat_core_customized.group_school_teacher" model="res.groups">
+        <field name="implied_ids"
+            eval="[(4, ref('openeducat_timetable_customized.group_timetable_teacher'))]" />
+    </record>
+
+    <!-- Teacher New Rule -->
+    <record id="teacher_session_rule" model="ir.rule">
+        <field name="name">Teacher Session Rule</field>
+        <field name="model_id" ref="openeducat_timetable.model_op_session" />
+        <field name="groups"
+            eval="[(4, ref('openeducat_timetable_customized.group_timetable_teacher'))]" />
+        <field name="domain_force">[('faculty_id.emp_id.user_id','=',user.id)]</field>
+    </record>
+
+</odoo>

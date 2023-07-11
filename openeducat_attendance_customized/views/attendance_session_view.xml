@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_op_attendance_sheet_form_inherited">
+            <field name="name">op.attendance.sheet.form.inherited</field>
+            <field name="model">op.session</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='cta']" position="inside">
+                    <button class="btn btn-primary" type="object" name="get_attendance"
+                        string="Attendance Sheet" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

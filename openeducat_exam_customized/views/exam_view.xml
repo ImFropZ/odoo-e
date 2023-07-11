@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_op_exam_form_inherited" model="ir.ui.view">
+      <field name="name">op.exam.form.inherited</field>
+      <field name="model">op.exam</field>
+      <field name="priority">15</field>
+      <field name="inherit_id" ref="openeducat_exam.view_op_exam_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_chatter']" position="attributes">
+          <attribute name="invisible">True</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

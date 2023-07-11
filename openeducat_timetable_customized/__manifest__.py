@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Openeducat Exam Customized',
+    'name': 'Openeducat Timetable Customized',
     'version': '1.0.0',
     'sequence': 126,
-    'summary': 'Openeducat Exam Customized',
+    'summary': 'Openeducat Timetable Customized',
     'author': 'Anakut Digital',
     'category': 'Education/Anakut',
     'description': """
-Openeducat Exam Customized by ANAKUT
+Openeducat Timetable Customized by ANAKUT
 ==========================================
 
 Add
@@ -17,16 +17,13 @@ Add
 
 """,
     'depends': [
-        'openeducat_classroom',
-        'openeducat_exam'
+        'openeducat_timetable'
     ],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
 
-        'views/exam_session_view.xml',
-        'views/exam_view.xml',
-        'views/exam_attendees_view.xml',
+        'views/timetable_view.xml',
 
         'menu/op_menu.xml',
     ],

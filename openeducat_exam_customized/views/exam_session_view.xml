@@ -111,5 +111,62 @@
         </xpath>
       </field>
     </record>
+
+    <record id="view_op_exam_session_kanban" model="ir.ui.view">
+      <field name="name">op.exam.session.kanban</field>
+      <field name="model">op.exam.session</field>
+      <field name="arch" type="xml">
+        <kanban string="Exam Session">
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                <div class="o_kanban_card_content">
+                  <div style="display: flex; justify-content: space-between;">
+                    <field name="state" modifiers="{&quot;required&quot;: true}"
+                      widget="badge" />
+                    <field name="exam_code"
+                      modifiers="{&quot;required&quot;: true}" />
+                  </div>
+                  <h2 style="margin: .5rem 0;">
+                    <field name="name" modifiers="{&quot;required&quot;: true}" />
+                  </h2>
+                  <div style="display: flex; gap: .5rem; align-items: center;">
+                    <h5 style="margin: 0;">
+                      <field name="course_id"
+                        modifiers="{&quot;required&quot;: true}" />
+                    </h5>
+                    <p style="margin: 0;">
+                      <field name="batch_id"
+                        modifiers="{&quot;required&quot;: true}"
+                        widget="badge" />
+                    </p>
+                  </div>
+                  <div style="display: flex; gap: .5rem;">
+                    <span>Duration : </span>
+                                        <span>
+                      <field name="start_date"
+                        modifiers="{&quot;required&quot;: true}" />
+                    </span> - <span>
+                      <field name="end_date"
+                        modifiers="{&quot;required&quot;: true}" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="openeducat_exam.act_open_op_exam_session_view">
+      <field name="name">Exam Sessions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">op.exam.session</field>
+      <field name="view_mode">kanban</field>
+      <field name="search_view_id" ref="openeducat_exam.view_op_exam_session_search" />
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+    </record>
   </data>
 </odoo>
