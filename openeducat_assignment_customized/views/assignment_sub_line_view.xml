@@ -15,6 +15,18 @@
           <attribute name="invisible">True</attribute>
         </xpath>
 
+        <xpath expr="//header/button[@name='act_accept']" position="attributes">
+          <attribute name="group">openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher</attribute>
+        </xpath>
+
+        <xpath expr="//header/button[@name='act_change_req']" position="attributes">
+          <attribute name="group">openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher</attribute>
+        </xpath>
+
+        <xpath expr="//header/button[@name='act_reject']" position="attributes">
+          <attribute name="group">openeducat_assignment.group_op_assignment_user, openeducat_assignment.group_assignment_teacher</attribute>
+        </xpath>
+
         <xpath expr="//sheet/group" position="after">
           <div
             style="padding-top: 0.25rem; padding-bottom: 0.25rem; padding-left: 0.75rem;padding-right: 0.75rem; margin-top: 0.5rem; border-radius: 0.25rem; min-width: 22rem;">
@@ -41,6 +53,29 @@
           </div>
         </xpath>
       </field>
+    </record>
+
+    <record id="view_op_assignment_sub_line_kanban" model="ir.ui.view">
+      <field name="name">op.assignment.sub.line.kanban</field>
+      <field name="model">op.assignment.sub.line</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window"
+      id="openeducat_assignment.act_open_op_assignment_sub_line_view">
+      <field name="name">Assignment Submissions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">op.assignment.sub.line</field>
+      <field name="view_mode">kanban</field>
+      <field name="search_view_id" ref="openeducat_assignment.view_op_assignment_sub_line_search" />
     </record>
   </data>
 </odoo>
