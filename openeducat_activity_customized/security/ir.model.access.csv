@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_op_activity_teacher,name_op_activity_teacher,openeducat_activity.model_op_activity,openeducat_core_customized.group_school_teacher,1,0,0,0

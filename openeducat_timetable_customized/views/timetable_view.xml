@@ -72,95 +72,40 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="view_session_kanban">
-            <field name="name">op.session.kanban</field>
+        <record model="ir.ui.view" id="view_session_kanban_inherited">
+            <field name="name">op.session.kanban.inherited</field>
             <field name="model">op.session</field>
+            <field name="priority">18</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_session_kanban" />
             <field name="arch" type="xml">
-                <kanban default_group_by="days" class="o_kanban_small_column">
-                    <field name="type" />
-                    <field name="color" />
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div
-                                t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
-                                <div class="o_dropdown_kanban dropdown">
-                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#"
-                                        role="button">
-                                        <span class="fa fa-bars fa-lg" title="Session" />
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                        <t t-if="widget.editable">
-                                            <li>
-                                                <a type="edit" style="padding-left: 10px">Edit</a>
-                                            </li>
-                                        </t>
-                                        <t t-if="widget.deletable">
-                                            <li>
-                                                <a type="delete" style="padding-left: 10px">Delete</a>
-                                            </li>
-                                        </t>
-                                        <li>
-                                            <ul class="oe_kanban_colorpicker"
-                                                data-field="color" />
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="oe_kanban_content">
-                                    <div class="oe_kanban_bottom_right">
-                                        <img alt="Faculty"
-                                            t-att-src="kanban_image('op.faculty', 'image_1920', record.faculty_id.raw_value)"
-                                            t-att-title="record.faculty_id.value" width="64"
-                                            height="64"
-                                            class="oe_kanban_avatar" />
-                                    </div>
-                                    <div>
-                                        <strong>
-                                            <field name="timing" />
-                                        </strong>
-                                    </div>
-                                    <div
-                                        class="oe_kanban_left">
-                                        <div>
-                                            <b>Faculty : </b>
-                                            <field name="faculty_id" />
-                                        </div>
-                                        <div>
-                                            <b>Subject : </b>
-                                            <field name="subject_id" />
-                                        </div>
-                                        <div>
-                                            <b>Course : </b>
-                                            <field name="course_id" />
-                                        </div>
-                                        <div>
-                                            <b>Batch : </b>
-                                            <field name="batch_id" />
-                                        </div>
-                                        <div>
-                                            <b>Start : </b>
-                                            <field name="start_datetime" />
-                                        </div>
-                                        <div>
-                                            <b>End : </b>
-                                            <field name="end_datetime" />
-                                        </div>
-                                    </div>
-                                    <div class="oe_clear"></div>
-                                </div>
+                <xpath expr="//kanban/templates/t/div/div[@class='o_dropdown_kanban dropdown']"
+                    position="attributes">
+                    <attribute name="groups">!openeducat_exam_customized.group_exam_teacher</attribute>
+                </xpath>
+
+                <xpath expr="//div[@class='oe_kanban_content']" position="replace">
+                    <div class="oe_kanban_content">
+                        <div style="display: flex; justify-content: space-between;">
+                            <field name="batch_id" widget="badge" />
+                            <field name="timing" widget="badge" />
+                        </div>
+                        <div class="oe_kanban_left">
+                            <div class="oe_kanban_bottom_right" style="margin: 1rem 0;">
+                                <img alt="Faculty"
+                                    t-att-src="kanban_image('op.faculty', 'image_1920', record.faculty_id.raw_value)"
+                                    t-att-title="record.faculty_id.value" width="64" height="64"
+                                    class="oe_kanban_avatar" />
                             </div>
-                        </t>
-                    </templates>
-                </kanban>
+                            <p style="margin: 0;">Faculty: <field name="faculty_id" /></p>
+                            <p style="margin: 0;">Subject: <field name="subject_id" /></p>
+                            <p style="margin: 0;">Course: <field name="course_id" /></p>
+                            <p style="margin: 0;">Start: <field name="start_datetime" /></p>
+                            <p style="margin: 0;">End: <field name="end_datetime" /></p>
+                        </div>
+                        <div class="oe_clear" />
+                    </div>
+                </xpath>
             </field>
         </record>
-
-        <record model="ir.actions.act_window" id="openeducat_timetable.act_open_op_session_view">
-            <field name="name">Sessions</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">op.session</field>
-            <field name="view_mode">kanban</field>
-            <field name="search_view_id" ref="openeducat_timetable.view_op_session_search" />
-        </record>
-
     </data>
 </odoo>

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Openeducat Exam Customized',
+    'name': 'Openeducat Activity Customized',
     'version': '1.0.0',
     'sequence': 126,
-    'summary': 'Openeducat Exam Customized',
+    'summary': 'Openeducat Activity Customized',
     'author': 'Anakut Digital',
     'category': 'Education/Anakut',
     'description': """
-Openeducat Exam Customized by ANAKUT
+Openeducat Activity Customized by ANAKUT
 ==========================================
 
 Add
@@ -17,17 +17,10 @@ Add
 
 """,
     'depends': [
-        'openeducat_exam'
+        'openeducat_activity'
     ],
     'data': [
-        'security/security.xml',
         'security/ir.model.access.csv',
-
-        'views/exam_session_view.xml',
-        'views/exam_view.xml',
-        'views/exam_attendees_view.xml',
-
-        'menu/op_menu.xml',
     ],
     'demo': [
 

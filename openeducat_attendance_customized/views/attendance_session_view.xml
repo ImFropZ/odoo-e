@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record model="ir.ui.view" id="view_op_attendance_sheet_form_inherited">
-            <field name="name">op.attendance.sheet.form.inherited</field>
+        <record model="ir.ui.view" id="view_op_attendance_session_form_inherited">
+            <field name="name">op.attendance.session.form.inherited</field>
             <field name="model">op.session</field>
             <field name="priority">20</field>
             <field name="inherit_id" ref="openeducat_timetable.view_op_session_form" />
