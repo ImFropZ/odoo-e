@@ -63,5 +63,47 @@
         </xpath>
       </field>
     </record>
+
+    <record id="view_op_student_course_kanban" model="ir.ui.view">
+      <field name="name">op.student.course.kanban</field>
+      <field name="model">op.student.course</field>
+      <field name="arch" type="xml">
+        <kanban string="Student Course Details">
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                <div class="o_kanban_card_content">
+                  <div style="display: flex; justify-content: space-between;">
+                    <field name="roll_number" widget="badge" />
+                    <div style="display: flex; gap: 1rem;">
+                      <field name="batch_id" widget="badge" />
+                      <field name="state" widget="badge" />
+                    </div>
+                  </div>
+
+                  <h2>
+                    <field name="student_id" modifiers="{&quot;required&quot;: true}" />
+                  </h2>
+                  <p style="display: inline; margin: 0.5rem 0;">Course : <field name="course_id"
+                      modifiers="{&quot;required&quot;: true}" /></p>
+                  <p style="margin: 0.5rem 0;">
+                    <field name="subject_ids" modifiers="{&quot;required&quot;: true}"
+                      widget="many2many_tags" />
+                  </p>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="openeducat_core.act_open_op_student_course_view">
+      <field name="name">Student Course Detail</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">op.student.course</field>
+      <field name="view_mode">kanban</field>
+      <field name="search_view_id" ref="openeducat_core.view_op_student_course_search" />
+    </record>
   </data>
 </odoo>
