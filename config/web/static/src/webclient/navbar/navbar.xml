@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+  <t t-name="web.NavBar" owl="1">
+    <header class="o_navbar" t-ref="root">
+      <nav
+        class="o_main_navbar"
+        data-command-category="navbar"
+      >
+                <!-- Apps Menu -->
+        <t t-call="web.NavBar.AppsMenu">
+          <t t-set="apps" t-value="menuService.getApps()" />
+        </t>
+
+                <!-- App Brand -->
+        <DropdownItem
+          t-if="currentApp"
+          href="getMenuItemHref(currentApp)"
+          t-esc="currentApp.name"
+          class="'o_menu_brand d-none d-md-block'"
+          dataset="{ menuXmlid: currentApp.xmlid, section: currentApp.id }"
+          onSelected="() => this.onNavBarDropdownItemSelection(currentApp)"
+        />
+
+                <!-- Current App Sections -->
+        <t t-if="currentAppSections.length" t-call="web.NavBar.SectionsMenu">
+          <t t-set="sections" t-value="currentAppSections" />
+        </t>
+
+                <!-- Systray -->
+        <div class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu">
+          <t t-foreach="systrayItems" t-as="item" t-key="item.key">
+                        <!-- This ensures the correct order of the systray items -->
+            <div t-att-data-index="item.index"/>
+            <ErrorHandler onError="error => this.handleItemError(error, item)">
+                            <!-- SCHOOL: Remove Burger menu and Message from systray -->
+              <t t-if="item.key != 'burger_menu'">
+                <t t-if="item.key != 'mail.MessagingMenuContainer'">
+                  <t t-component="item.Component" t-props="item.props"/>
+                </t>
+              </t>
+              </ErrorHandler>
+          </t>
+        </div>
+      </nav>
+    </header>
+
+        <!-- Menu Bar for Mobile screen -->
+
+    <div class="d-block d-md-none" style="z-index: 999; position: fixed; bottom:0;width: 100%; background-color: #f2f2f2; padding: 10px 0; box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2);">
+      <div style="display: flex; justify-content: space-around; padding: 0 .5rem; ">
+                <!-- Systray -->
+                <!-- Home Icon -->
+
+        <a style="text-decoration: none; color: #000; font-weight: bold; display: flex; flex-direction: column; align-items: center;" class="active" href="/web#"> 
+          <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"/></svg>
+          </div>
+          Home
+        </a>
+
+                <!-- Chat Icon -->
+        <a style="text-decoration: none; color: #000; font-weight: bold; display: flex; flex-direction: column; align-items: center;" class="active" href="/web#action=119&amp;menu_id=82"> 
+          <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256"><path fill="currentColor" d="M232 64v128a16 16 0 0 1-16 16H82.5l-32.08 28.11a.69.69 0 0 1-.13.11A15.89 15.89 0 0 1 40 240a16.05 16.05 0 0 1-6.79-1.52A15.84 15.84 0 0 1 24 224V64a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16Z"/></svg>
+          </div>
+          Chat
+        </a>
+
+                <!-- User icon -->
+        <div class="o_menu_systray d-flex" role="menu">
+          <t t-set="i" t-value="0" />
+          <t t-foreach="systrayItems" t-as="item" t-key="item.key">
+            <div width="10%" height="10%">
+              <t t-if="item.key == 'burger_menu'">
+                <div t-att-data-index="item.index" style="display: flex; flex-direction: column; align-items: center;">
+                  <t t-component="item.Component" t-props="item.props"/>
+                  <div style="font-weight: bold; color: #000;">Menu</div>
+                </div>
+              </t>
+            </div>
+          </t>
+        </div>
+    </div>
+
+  </div> 
+  </t>
+  <t t-name="web.NavBar.SectionsMenu" owl="1">
+    <div class="o_menu_sections d-none d-md-flex flex-grow-1 flex-shrink-1" t-ref="appSubMenus" role="menu">
+
+      <t t-foreach="sections" t-as="section" t-key="section.id">
+        <t
+          t-set="sectionsVisibleCount"
+          t-value="(sections.length - currentAppSectionsExtra.length)"
+        />
+
+        <t t-if="section_index lt Math.min(10, sectionsVisibleCount)">
+          <t t-set="hotkey" t-value="((section_index + 1) % 10).toString()" />
+        </t>
+        <t t-else="">
+          <t t-set="hotkey" t-value="undefined" />
+        </t>
+
+        <t t-if="!section.childrenTree.length">
+          <DropdownItem
+            title="section.name"
+            class="'o_nav_entry'"
+            href="getMenuItemHref(section)"
+            hotkey="hotkey"
+            t-esc="section.name"
+            dataset="{ menuXmlid: section.xmlid, section: section.id }"
+            onSelected="() => this.onNavBarDropdownItemSelection(section)"
+          />
+        </t>
+        <t t-else="">
+          <MenuDropdown
+            hotkey="hotkey"
+            title="section.name"
+            xmlid="section.xmlid"
+          >
+            <t t-set-slot="toggler">
+              <span t-esc="section.name" t-att-data-section="section.id" />
+            </t>
+            <t t-call="web.NavBar.SectionsMenu.Dropdown.MenuSlot">
+              <t t-set="items" t-value="section.childrenTree" />
+            </t>
+          </MenuDropdown>
+        </t>
+      </t>
+
+      <t t-if="currentAppSectionsExtra.length" t-call="web.NavBar.SectionsMenu.MoreDropdown">
+        <t t-set="sections" t-value="currentAppSectionsExtra" />
+        <t t-if="sectionsVisibleCount lt 10">
+          <t t-set="hotkey" t-value="(sectionsVisibleCount + 1 % 10).toString()" />
+        </t>
+      </t>
+
+    </div>
+  </t>
+
+  <t t-name="web.NavBar.SectionsMenu.Dropdown.MenuSlot" owl="1">
+    <t t-foreach="items" t-as="item" t-key="item.id">
+      <DropdownItem
+        t-if="!item.childrenTree.length"
+        href="getMenuItemHref(item)"
+        class="'dropdown-item'"
+        t-esc="item.name"
+        dataset="{ menuXmlid: item.xmlid, section: item.id }"
+        onSelected="() => this.onNavBarDropdownItemSelection(item)"
+      />
+
+      <t t-else="">
+        <div class="dropdown-menu_group dropdown-header" t-esc="item.name" />
+        <DropdownItem
+          t-foreach="item.childrenTree"
+          t-as="subItem"
+          t-key="subItem.id"
+          class="'o_dropdown_menu_group_entry dropdown-item'"
+          href="getMenuItemHref(subItem)"
+          t-esc="subItem.name"
+          dataset="{ menuXmlid: subItem.xmlid, section: subItem.id }"
+          onSelected="() => this.onNavBarDropdownItemSelection(subItem)"
+        />
+      </t>
+    </t>
+  </t>
+
+  <t t-name="web.NavBar.SectionsMenu.MoreDropdown" owl="1">
+    <Dropdown class="'o_menu_sections_more'" title="'More Menu'" hotkey="hotkey">
+      <t t-set-slot="toggler">
+        <i class="fa fa-plus"/>
+      </t>
+      <t t-foreach="sections" t-as="section" t-key="section.id">
+
+        <t t-if="!section.childrenTree.length">
+          <DropdownItem
+            class="'o_more_dropdown_section'"
+            href="getMenuItemHref(section)"
+            t-esc="section.name"
+            dataset="{ menuXmlid: section.xmlid, section: section.id }"
+            onSelected="() => this.onNavBarDropdownItemSelection(section)"
+          />
+        </t>
+        <t t-else="">
+          <div
+            class="o_more_dropdown_section o_more_dropdown_section_group dropdown-header bg-100"
+            t-esc="section.name"
+          />
+          <t t-call="web.NavBar.SectionsMenu.Dropdown.MenuSlot">
+            <t t-set="items" t-value="section.childrenTree" />
+          </t>
+        </t>
+      </t>
+    </Dropdown>
+  </t>
+
+</templates>
