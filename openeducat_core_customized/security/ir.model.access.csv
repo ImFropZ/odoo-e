@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_op_student_teacher,op_student_teacher,openeducat_core.model_op_student,group_school_teacher,1,0,0,0
-access_op_faculty_teacher,op_faculty_teacher,openeducat_core.model_op_faculty,group_school_teacher,1,0,0,0
-access_op_course_teacher,op_course_teacher,openeducat_core.model_op_course,group_school_teacher,1,0,0,0
-access_op_subject_teacher,op_subject_teacher,openeducat_core.model_op_subject,group_school_teacher,1,0,0,0
-access_op_batch_teacher,op_batch_teacher,openeducat_core.model_op_batch,group_school_teacher,1,0,0,0
-access_op_student_course_teacher,op_student_course_teacher,openeducat_core.model_op_student_course,group_school_teacher,1,0,0,0

@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_op_student_fees_details_teacher,name_op_student_fees_details_teacher,openeducat_fees.model_op_student_fees_details,group_fees_teacher,1,0,0,0
