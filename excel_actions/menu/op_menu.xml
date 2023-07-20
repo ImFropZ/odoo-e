@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="excel_actions.menu_op_excel_actions_root" name="Excel Actions"
+            sequence="10" />
+    </data>
+</odoo>

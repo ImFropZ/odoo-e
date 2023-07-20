@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">excel.student.view.tree</field>
+        <field name="model">excel.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student">
+                <field name="name" />
+                <field name="age" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">model_name.view.form</field>
+        <field name="model">model_name</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="age" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="openeducat_assignment.act_open_op_assignment_view">
+        <field name="name">Assignments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">op.assignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="openeducat_assignment.view_op_assignment_search" />
+    </record>
+
+</odoo>
