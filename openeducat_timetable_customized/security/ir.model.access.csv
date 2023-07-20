@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_op_session_timetable_teacher,name_op_session_timetable_teacher,openeducat_timetable.model_op_session,openeducat_timetable_customized.group_timetable_teacher,1,0,0,0

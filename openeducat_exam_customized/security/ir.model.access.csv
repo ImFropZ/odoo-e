@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_exam_session_teacher,name_exam_session_teacher,openeducat_exam.model_op_exam_session,openeducat_exam_customized.group_exam_teacher,1,0,0,0
-access_exam_attendees_teacher,name_exam_attendees_teacher,openeducat_exam.model_op_exam_attendees,openeducat_exam_customized.group_exam_teacher,1,0,0,0
-access_exam_teacher,name_exam_teacher,openeducat_exam.model_op_exam,openeducat_exam_customized.group_exam_teacher,1,0,0,0
